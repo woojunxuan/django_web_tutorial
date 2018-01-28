@@ -1,16 +1,17 @@
 from django.db import models
-# from faker import Factory
+from faker import Factory
 
 class Video(models.Model):
     title = models.CharField(null=True, blank=True, max_length=300)
     content = models.TextField(null=True, blank=True)
     url_image = models.URLField(null=True, blank=True)
+    cover = models.FileField(upload_to='cover_image', null=True)
     editors_choice = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
 
-# f = open('D:\\codes\\git\\django_web\\level2\\用django分页器实现文章分页\\tenmins\\website\\web_url.txt')
+# f = open('D:\\codes\\git\\django_web_tutorial\\level2\\用django分页器实现文章分页\\tenmins\\website\\web_url.txt')
 # fake = Factory.create()
 # for url in f.readlines():
 #     print('{}--'.format(url.rstrip('\n')))
